@@ -32,22 +32,34 @@ The repository is organized into modular folders — one for each machine learni
 
 ---
 
-**Folder Structure**
-pycaret_assignment/
-├── anomaly_detection/          # Fraud detection on bank transactions
-├── association_rule_mining/    # Market basket analysis on grocery data
-├── clustering/                 # Customer segmentation
-├── multiclass/                 # Student performance classification
-├── regression/                 # Car price prediction
-├── time_series/                # Weather forecasting (univariate)
-└── README.md                   # This file
+## 📂 Repository Structure
 
+```
+pycaret_assignment/
+│
+├── binary/
+│   └── binary_classification.ipynb
+├── multiclass/
+│   └── multiclass_classification.ipynb
+├── regression/
+│   └── regression.ipynb
+├── clustering/
+│   └── clustering.ipynb
+├── anomaly/
+│   └── anomaly_detection.ipynb
+├── association_rules/
+│   └── pycaret_association_rules.ipynb
+├── time_series_forecasting/
+│   ├── univariate.ipynb
+│   └── exogenous.ipynb
+├── README.md
+└── .gitignore
+```
 Each folder contains:
 📓 Jupyter Notebook (.ipynb)
 📊 Dataset (.csv)
-📝 Detailed README 
-🔧 Saved models (.pkl )
-
+📝 Detailed README
+🔧 Saved models (.pkl)
 
 ## 📹 Deliverables
 
