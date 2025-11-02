@@ -1,19 +1,83 @@
+# 🎯 Multiclass Classification – Student Grade Prediction
 
-## 🌸 2. Multiclass Classification – Level
-**Dataset:** `iris.csv`  
-**Objective:** Predict the species of iris flowers.  
+This folder contains a minimal **PyCaret workflow** for this task.
 
-### Steps:
-- Load the Iris dataset and setup PyCaret for multiclass classification.
-- Compare models and finalize the best one.
+---
 
-```python
-from pycaret.classification import *
-df = pd.read_csv("data/iris.csv")
-s = setup(data=df, target="species", session_id=42)
-best = compare_models()
-final_model = finalize_model(best)
-save_model(final_model, "iris_multiclass_pycaret")
+## 📊 Dataset
+
+- **File:** `Student_performance_data_.csv`  
+- **Features:** Relevant input attributes for modeling  
+- **Target:** `GradeClass`  
+- **Purpose:** Predict student grade categories based on various academic attributes and study metrics.
+
+---
+
+## 🧠 Task
+
+**Type:** Supervised Multiclass Classification  
+**Goal:** Use PyCaret's AutoML to build, compare, and evaluate models for this task.
+
+---
+
+## 📓 Notebook
+
+- **File:** `multiclass_classification.ipynb`  
+- **Workflow:**
+  1. Load and explore the dataset  
+  2. Initialize `PyCaret` experiment setup  
+  3. Compare multiple models automatically  
+  4. Evaluate best-performing model visually  
+  5. Generate and export predictions  
+  6. Save the trained model  
+
+---
+
+## ⚙️ How to Run
+
+Ensure PyCaret is installed:
+
+```bash
+pip install pycaret[analysis]
 ```
 
-**Result:** Random Forest achieved >95% accuracy.
+Run the notebook:
+
+```bash
+jupyter notebook multiclass_classification.ipynb
+```
+
+Then **Run All Cells** to:
+- Load `Student_performance_data_.csv`  
+- Compare 15+ algorithms automatically  
+- Select the best model based on chosen metric  
+- Display evaluation plots and predictions  
+
+---
+
+## 💾 Model Output
+
+- **Model File:** `best_model.pkl` *(excluded from Git)*  
+- **Predictions:** Generated predictions with confidence/probability scores  
+
+---
+
+## 📈 Evaluation Metrics
+
+- Accuracy / RMSE (depending on task)  
+- Precision, Recall, F1-Score (for classification)  
+- Confusion Matrix or Residual Plot  
+- ROC-AUC or R2 Score  
+- Model Comparison Table  
+
+---
+
+## 🎯 Use Case
+
+Enables early academic interventions and personalized learning recommendations.
+
+---
+
+## 🔗 References
+
+- [PyCaret Official Tutorials](https://pycaret.gitbook.io/docs/get-started/tutorials)
