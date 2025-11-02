@@ -21,19 +21,6 @@ The repository is organized into modular folders — one for each machine learni
 
 ---
 
-## 🧩 CRISP–DM Framework Alignment
-
-This assignment is structured following the **CRISP–DM** methodology:
-
-1. **Business Understanding** – Define ML objective and target variable.  
-2. **Data Understanding** – Explore and visualize data for key patterns.  
-3. **Data Preparation** – Handle missing values, normalization, and feature engineering.  
-4. **Modeling** – Apply PyCaret AutoML to train and compare models.  
-5. **Evaluation** – Select best model based on accuracy, AUC, or RMSE.  
-6. **Deployment** – Save and reuse finalized model for inference.
-
----
-
 ## 🧠 Technologies & Tools Used
 
 - **PyCaret 3.3.x** – Low-code ML framework  
@@ -56,10 +43,10 @@ pycaret_assignment/
 └── README.md                   # This file
 
 Each folder contains:
-📓 Jupyter Notebook (.ipynb) with complete workflow
+📓 Jupyter Notebook (.ipynb)
 📊 Dataset (.csv)
-📝 Detailed README with task description and instructions
-🔧 Saved models (.pkl - excluded from Git)
+📝 Detailed README 
+🔧 Saved models (.pkl )
 
 
 ## 📹 Deliverables
@@ -93,8 +80,26 @@ save_model(final_model, "telco_churn_pycaret")
 **Result:** LightGBM achieved the highest AUC (~0.83).
 
 ---
+## 🧩 1. Binary Classification – Level
+**Dataset:** `telco_churn.csv`  
+**Objective:** Predict whether a telecom customer will churn (Yes/No).  
 
-## 🌸 2. Multiclass Classification – Level
+### Steps:
+1. Load and clean the dataset (handle missing values, numeric conversions).
+2. Use **PyCaret Classification Module** with normalization and multicollinearity removal.
+3. Compare models and finalize the best one.
+
+```python
+from pycaret.classification import *
+df = pd.read_csv("data/telco_churn.csv")
+s = setup(data=df, target="Churn", normalize=True, session_id=42)
+best = compare_models()
+final_model = finalize_model(best)
+save_model(final_model, "telco_churn_pycaret")
+
+----
+
+**## 🌸 2. Multiclass Classification – Level******
 **Dataset:** `iris.csv`  
 **Objective:** Predict the species of iris flowers.  
 
