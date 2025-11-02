@@ -1,15 +1,83 @@
-PyCaret Assignment – Anuradha Srivastav
-Overview
-This repository contains the end-to-end implementation of all PyCaret modules for low-code machine learning tasks. Each task was completed in a Google Colab environment and verified in a local virtual environment through VS Code.
-Structure
-Each folder represents a distinct PyCaret functionality:- classification/: Binary and Multiclass classification notebooks.- regression/: Regression analysis notebooks.- clustering/: Unsupervised clustering demonstration.- anomaly_detection/: Anomaly detection implementation.- association_rule_mining/: Association Rules with legacy PyCaret 2.3.5.- time_series/: Time Series forecasting (univariate & with exogenous variables).- gradio/: Interactive web app demos using Gradio.
-Virtual Environments
-1. `.venv-pycaret3` – Python 3.11 with PyCaret 3.x for all tasks except Association Rules.2. `.venv-pycaret2` – Python 3.8.18 with PyCaret 2.3.5 exclusively for Association Rules.
-Execution Instructions
-To reproduce the results:```bashgit clone https://github.com/anuradhasrivastav/pycaret-assignment.gitcd pycaret-assignmentsource .venv-pycaret3/bin/activate  # or .venv-pycaret2 for association rulesjupyter notebook```Open the desired notebook (e.g., `association_rule_mining/pycaret_association_rules.ipynb`) and run all cells.
-Recording Instructions
-Each notebook is demonstrated in a 1-minute video walkthrough showing:1. Import statements and setup function.2. Dataset loading and exploration.3. PyCaret setup and model creation.4. Output demonstration and model save.Videos are stored under `videos/` with the naming convention `01-classification.mp4`, `02-regression.mp4`, etc.
-Gradio Demos
-Two Gradio apps demonstrate PyCaret integration for deployment:- `gradio/gradio_classification_app.ipynb`- `gradio/gradio_regression_app.ipynb`Run the final cell in each notebook to launch the app.
-Acknowledgment
-This work follows the PyCaret official documentation and is independently implemented for academic submission under Dr. Elena Novak's evaluation framework.
+# 🎯 Association Rule Mining – Market Basket Analysis
+
+This folder contains a minimal **PyCaret workflow** for this task.
+
+---
+
+## 📊 Dataset
+
+- **File:** `Groceries.csv`  
+- **Features:** Relevant input attributes for modeling  
+- **Target:** `Item Sets`  
+- **Purpose:** Discover frequent item combinations in retail transactions using PyCaret 2.3.5.
+
+---
+
+## 🧠 Task
+
+**Type:** Unsupervised Association Rules  
+**Goal:** Use PyCaret's AutoML to build, compare, and evaluate models for this task.
+
+---
+
+## 📓 Notebook
+
+- **File:** `pycaret_association_rules.ipynb`  
+- **Workflow:**
+  1. Load and explore the dataset  
+  2. Initialize `PyCaret` experiment setup  
+  3. Compare multiple models automatically  
+  4. Evaluate best-performing model visually  
+  5. Generate and export predictions  
+  6. Save the trained model  
+
+---
+
+## ⚙️ How to Run
+
+Ensure PyCaret is installed:
+
+```bash
+pip install pycaret[analysis]
+```
+
+Run the notebook:
+
+```bash
+jupyter notebook pycaret_association_rules.ipynb
+```
+
+Then **Run All Cells** to:
+- Load `Groceries.csv`  
+- Compare 15+ algorithms automatically  
+- Select the best model based on chosen metric  
+- Display evaluation plots and predictions  
+
+---
+
+## 💾 Model Output
+
+- **Model File:** `best_model.pkl` *(excluded from Git)*  
+- **Predictions:** Generated predictions with confidence/probability scores  
+
+---
+
+## 📈 Evaluation Metrics
+
+- Accuracy / RMSE (depending on task)  
+- Precision, Recall, F1-Score (for classification)  
+- Confusion Matrix or Residual Plot  
+- ROC-AUC or R2 Score  
+- Model Comparison Table  
+
+---
+
+## 🎯 Use Case
+
+Improves product bundling, cross-selling, and store layout optimization.
+
+---
+
+## 🔗 References
+
+- [PyCaret Official Tutorials](https://pycaret.gitbook.io/docs/get-started/tutorials)
