@@ -218,7 +218,7 @@ pip install pycaret[full]==3.3.2
 python3 -m venv .venv-pycaret2
 source .venv-pycaret2/bin/activate
 pip install pycaret==2.3.5 mlxtend pandas<1.4 scikit-learn==0.23.2
-
+```
 
 ---
 
