@@ -79,24 +79,6 @@ save_model(final_model, "telco_churn_pycaret")
 
 **Result:** LightGBM achieved the highest AUC (~0.83).
 
----
-## 🧩 1. Binary Classification – Level
-**Dataset:** `telco_churn.csv`  
-**Objective:** Predict whether a telecom customer will churn (Yes/No).  
-
-### Steps:
-1. Load and clean the dataset (handle missing values, numeric conversions).
-2. Use **PyCaret Classification Module** with normalization and multicollinearity removal.
-3. Compare models and finalize the best one.
-
-```python
-from pycaret.classification import *
-df = pd.read_csv("data/telco_churn.csv")
-s = setup(data=df, target="Churn", normalize=True, session_id=42)
-best = compare_models()
-final_model = finalize_model(best)
-save_model(final_model, "telco_churn_pycaret")
-
 ----
 
 **## 🌸 2. Multiclass Classification – Level******
@@ -215,5 +197,35 @@ forecast = predict_model(final_model, fh=30, X=future_exog)
 forecast.to_csv("forecast_with_exog_output.csv", index=False)
 ```
 
-**Result:** 30-day forecast incorporating external weather variables.
+## 🧩 Virtual Environments Setup
+
+Two separate virtual environments ensure compatibility:
+
+| Environment | Python Version | PyCaret Version | Used For |
+|--------------|----------------|-----------------|-----------|
+| `.venv-pycaret3` | 3.11 | 3.3.2 | All modern PyCaret tasks |
+| `.venv-pycaret2` | 3.8.18 | 2.3.5 | Association Rules Mining |
+
+Create both if running locally:
+
+```bash
+# PyCaret 3.x environment
+python3 -m venv .venv-pycaret3
+source .venv-pycaret3/bin/activate
+pip install pycaret[full]==3.3.2
+
+# PyCaret 2.x environment
+python3 -m venv .venv-pycaret2
+source .venv-pycaret2/bin/activate
+pip install pycaret==2.3.5 mlxtend pandas<1.4 scikit-learn==0.23.2
+
+
+---
+
+**## 🌟 Key Learning Outcomes**
+- Hands-on practice with **PyCaret AutoML**  
+- Understanding **CRISP–DM** phases in real projects  
+- Building supervised, unsupervised & time-series models  
+- Managing **virtual environments and dependencies**  
+- Communicating results via **videos + visualizations**
 
